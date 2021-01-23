@@ -53,23 +53,26 @@ A good place to learn about Petri nets is James Peterson's classic ACM Computing
 If you are in the unibe domain, there is a <a href="http://scgresources.unibe.ch/~scg/Literature/CP/Pete77aSurvey.pdf">locally cached copy of the pdf</a>.
 (Various versions are also accessible from <a target="_blank" href="http://scholar.google.com/scholar?q=james+peterson+petri+nets">google scholar</a>.)</p>
 
-<p>To try out the interpreter, first <a target="_blank" href="http://www.squeakland.org/download/">download and install Etoys</a> and <a target="_blank" href="petitpetri-download.zip">download Petit Petri</a>.
-If you unzip the Petit Petri download you will find several Etoys project files containing examples that you can run. Simply start Etoys and drag and drop any of these files onto the running Etoys images.
-</p>
+<p>You can <a target="_blank" href="petitpetri-squeakjs/index.html">run the interpreter</a> directly in the browser, thanks to <a target="_blank" href="https://squeak.js.org">SqueakJS</a>.</p>
 
+<p>Alternatively, you can <a target="_blank" href="http://www.squeakland.org/download/">download and install Etoys</a> and <a target="_blank" href="petitpetri-download.zip">download Petit Petri</a>.
+If you unzip the Petit Petri download you will find several Etoys project files containing examples that you can run. Simply start Etoys and drag and drop any of these files onto the running Etoys images.</p>
+
+<!--
 <p>Alternatively you can run the interpreter directly from your web browser once you have the Etoys browser plug-in installed. (This should be installed automatically when you install Etoys.)
 Simply follow
 <a target="_blank" href="http://www.squeakland.org/project.jsp?http://scg.unibe.ch/download/petitpetri/petriNets.pr"><em>this link</em></a>
 to start the interpreter. (You will be prompted if the plug-in is not installed.)</p>
+-->
 
 <!-- p>If you are running Mac OSX 10.5 (Leopard), you may find that the plugin is broken. If this is the case, install the latest version of <a target="_blank" href="http://www.squeakland.org/plugin/installers/mac-x-std.html">Squeakland for Mac OSX</a>, and then install the following <a href="SqueakBrowserPlugin.zip">patch</a> (thanks to John McIntosh!).</p -->
 
 <!-- --- QUICKSTART -------------------------------------------------- -->
 <a name="QUICKSTART">
-<h2>Quick start</h2>
+<h1>Quick start</h1>
 </a>
 
-<p><img class="float" width="35%" src="Images/produceConsume.png">With any luck, you should now see in your browser a simple Petri net that looks like this:
+<p><img class="float" width="35%" src="Images/produceConsume.png">With any luck, you should now see in your browser a simple Petri net that looks like this (click on example 01petriBasic):
 </p>
 
 <p>
@@ -96,7 +99,7 @@ When you leave the place, the highlight will switch to yellow or white, and the 
 
 <!-- --- BUILDING -------------------------------------------------- -->
 <a name="BUILDING">
-<h2>Building your own nets</h2>
+<h1>Building your own nets</h1>
 </a>
 <p><img width="30%" align="left" src="Images/rewiring.png">
 	<img width="10%" class="float" src="Images/factory.png">
@@ -133,7 +136,7 @@ Use the red menu handle to send them to the background.</p>
 
 <!-- --- ETOYS -------------------------------------------------- -->
 <a name="ETOYS">
-<h2>Etoys implementation</h2>
+<h1>Etoys implementation</h1>
 </a>
 <p>The entire implementation consists of nine simple scripts for places and transitions. To access the scripts, right-click on a place or a transition and click the little blue eye.</p>
 
@@ -176,12 +179,20 @@ Use the red menu handle to send them to the background.</p>
 
 <!-- --- ACK -------------------------------------------------- -->
 <a name="ACK">
-<h2>Acknowledgments</h2>
+<h1>Acknowledgments</h1>
 </a>
-<p>Thanks to <a target="_blank" href="http://www.emergent.de/">Markus G&auml;lli</a> for implementing the first version of the interpreter, and for taking the time to show me how to use Etoys.</p>
+<p>Thanks to <a target="_blank" href="http://www.emergent.de/">Markus G&auml;lli</a> for implementing the first version of the interpreter, and for taking the time to show me how to use Etoys.
+Many thanks as well to <a target="_blank" href="https://github.com/codefrau">Vanessa Freudenberg</a> for helping us to get Petit Petri to run on <a target="_blank" href="https://squeak.js.org">SqueakJS</a>!<p>
+
+<!-- --- SIDEBAR -------------------------------------------------- -->
+
 </div class="contents">
 
 		<div class="sidebar column span-6 prepend-2 last">
+		<h1>Interpreter</h1>
+		<ul>
+		<li><a target="_blank" href="petitpetri-squeakjs/index.html">Run the interpreter</a></li> in your browser
+		</ul>
 		<h1>Downloads</h1>
 		<ul>
 		<li><a target="_blank" href="http://www.squeakland.org/download/">Download Etoys</a></li>
@@ -203,7 +214,7 @@ Use the red menu handle to send them to the background.</p>
 	</div class="column">
 
 	<!-- div class="breadcrumb footnote">You are here: ...</div -->
-	<div class="footnote">Last changed 2009-05-04 by <a href="/staff/oscar">omn</a></div>
+	<div class="footnote">Last changed 2021-01-23 by <a href="/staff/oscar">on</a></div>
 </div class="container">
 
 </body>
