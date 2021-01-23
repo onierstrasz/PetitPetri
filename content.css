@@ -1,0 +1,215 @@
+/* BODY */
+body {
+	padding-left: 0px;
+	color: black;
+	background: white;
+	font: 10pt Verdana, Tahoma, Arial, Helvetica, sans-serif, Times New Roman;
+}
+h1,h2,h3 {
+	font-weight: normal;
+	margin: 8px;
+	letter-spacing: 2px;
+	text-decoration: none;
+}
+table {
+	border-collapse: collapse;
+}
+td {
+	font-size: 12px;
+	border: 2px solid #CCCCCC;
+	padding: 4px;
+}
+#lastModified {
+	font-size: 8px;
+	text-align: right;
+	font-style: italic;
+	color: grey;
+	margin: 8px;
+	padding: 2px 2px 2px 8px;
+	border-top: 1px solid #CCCCCC;
+}
+#lastModified a {
+	color: grey;
+}
+.more {
+	text-align: right;
+	font-size: 8px;
+	font-style: italic;
+}
+/* BODY -end */
+
+/* LINKS */
+a:link {
+	color: #000099;
+	text-decoration: none;
+}
+a:visited {
+	color: #000099;
+	text-decoration: none;
+}
+a:hover {
+	color: #992222;
+	text-decoration: none;
+}
+a:active {
+	color: blue;
+	text-decoration: none;
+}
+a.button { /* pseudo-button appearance */
+	border: 1px solid #CCCCCC;
+	border-right-color: grey;
+	border-bottom-color: grey;
+	padding: 0px 4px;
+	background: #F0F0F0;
+}
+/*LINKS - end*/
+
+/* HEADER */
+#header {
+	padding: 3px;
+	padding-left: 16px;
+	border: 1px solid #CCCCCC;
+	background-image: url(./pictures/scg-logo-small.png);
+	background-repeat: no-repeat;
+	background-position: 99% 50%;
+}
+#header h1, #header h2 {
+	margin: 4px;
+	font-size: 16pt;
+	letter-spacing: 3px;
+}
+#breadcrumb {
+	float: right;
+	font-size: 8pt;
+	right: 0px;
+	margin-top: 8px;
+}
+#breadcrumb a + a:before {
+	content: "> ";
+	color: black;
+}
+/* HEADER - end */
+
+/* MENU */
+#menu {
+	font-size: 10pt;
+	margin-top: 8px;
+	margin-bottom: 32px;
+	padding-left: 20px;
+}
+#menu a {
+	border: 1px solid transparent;
+	padding: 4px;
+}
+#menu a.selected {
+	border: 1px solid #CCCCCC;
+	color: #990000;
+}
+#menu a:hover {
+	border: 1px solid grey;
+}
+#menu a:active {
+	background: grey;
+	color: white;
+}
+/* MENU - end */
+
+/* CONTENT */
+#content {
+	font-size: 10pt;
+}
+#content h1,#content h2,#content h3 {
+	letter-spacing: 2px;
+	padding: 2px 2px 2px 8px;
+	border: 1px solid #CCCCCC;
+}
+#content h1 {
+	font-size: 14pt;
+}
+#content h2 {
+	font-size: 12pt;
+}
+#content h3 {
+	font-size: 10pt;
+}
+#content p, #content form, #content pre {
+	padding-left: 16px;
+}
+#content table {
+	margin-left: 16px;
+}
+ul {
+	list-style-image: url(./pictures/dot.png);
+}
+/* CONTENT - end */
+
+/* NEWS */
+.date {
+	display: run-in;
+	margin-right: 8px;
+	color: #990000;
+	font-weight: bold;
+}
+.date:after {
+	content: ':';
+}
+#news {
+	font-size: 8pt;
+	float: right;
+	width: 240px;
+	margin-left: 16px;
+	margin-bottom: 16px;
+	padding: 8px 0px 0px 8px;
+	border-top: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	background: white;
+}
+#news h1,#news h2,#news h3 {
+	letter-spacing: 2px;
+	padding: 2px 2px 2px 8px;
+	border-left: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+}
+#news h1 {
+	font-size: 12pt;
+}
+#news h2 {
+	font-size: 10pt;
+}
+#news h3 {
+	font-size: 8pt;
+}
+#news p, #news form, #news table {
+	padding: 0px 0px 0px 16px;
+}
+/* NEWS - end*/
+
+/*PEOPLE*/
+.person {
+	clear : left;
+	padding-left: 16px;
+}
+.person .name {
+	width: 200px;
+	float: left;
+}
+.person .data {
+	float: left;
+}
+/*PEOPLE - end*/
+
+/* PRINTING */
+@media print {
+	#breadcrumb, #menu, #news {
+		display: none;
+	}
+	#menu, #breadcrumb a {
+		display: none;
+	}
+	#content a {
+		text-decoration: none;
+		color: black;
+	}
+}
+/* END PRINTING */

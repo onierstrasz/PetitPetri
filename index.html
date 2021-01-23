@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>PetitPetri &mdash; A Petri Net Editor built with Etoys</title>
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="/seaside/files/PRBlueprintLibrary/screen.css"/>
+	<link rel="stylesheet" type="text/css" media="print" href="/seaside/files/PRBlueprintLibrary/print.css"/>
+	<!--[if IE]>
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="/seaside/files/PRBlueprintLibrary/ie.css"/>
+	<![endif]-->
+	<script type="text/javascript" src="/seaside/files/PRJavaScriptSupport/pier.js">
+	</script>
+		<link rel="stylesheet" type="text/css" href="/system/templates/defaultCss?view=PRDownloadView">
+	<meta name="keywords" content="concurrent programming peteri nets etoys" />
+	<link rel="alternate" type="application/x-wiki" title="Edit" href="/download"/>
+</head>
+
+<body onload="onLoad()" class="page viewcommand defaultview">
+<div class="container">   
+
+	<div class="header column span-24 last">
+		<div class="menu column span-24 last">
+		<ul>
+		<li><a title="SCG" class="active internal page" href="/"><img width="18" height="20" style="margin-right:0.5em;vertical-align:text-bottom" title="/system/components/menu/scg-logo.png" src="/system/components/menu/scg-logo.png"/>SCG</a></li>
+		<li><a title="Research" class="internal page" href="/research">Research</a></li>
+		<li><a title="Teaching" class="internal page" href="/teaching">Teaching</a></li>
+		<li><a class=" internal page" title="Publications" href="/publications">Publications</a></li>
+		<li><a title="Staff" class="internal page" href="/staff">Staff</a></li>
+		<li><a title="Contact" class="internal page" href="/contact">Contact</a></li>
+		<li><a title="Wiki" class="internal page" href="/wiki">Wiki</a></li>
+		</ul>
+		</div class="menu">
+
+		<div class="breadcrumb footnote column span-24 right last">
+		<a title="SCG" class="internal page" href="/">SCG</a> &rarr; 
+		<a title="SCG Wiki" class="internal page" href="index.html">petit petri</a>
+		</div>
+	</div class="header">   
+
+	<div class="column span-24 last mainbody">     
+	<h1 class="heading">Petit Petri &mdash; A Petri Net Editor built with Etoys</h1>
+
+<div class="contents column span-16">
+<!-- --- INTRODUCTION -------------------------------------------------- -->
+<a name="INTRODUCTION">
+<h1>Petri nets</h1>
+</a>
+
+<p>This web page provides an overview of a <a target="_blank" href="http://www.squeakland.org/">Squeak Etoys</a> implementation of a Petri net interpreter.</p>
+
+<p>Petri nets are a well-known mathematical formalism for modeling and reasoning about concurrency.
+A good place to learn about Petri nets is James Peterson's classic ACM Computing Surveys article from 1997, entitled (surprisingly enough) <a target="_blank" href="http://doi.acm.org/10.1145/356698.356702">Petri Nets</a>.
+If you are in the unibe domain, there is a <a href="http://scgresources.unibe.ch/~scg/Literature/CP/Pete77aSurvey.pdf">locally cached copy of the pdf</a>.
+(Various versions are also accessible from <a target="_blank" href="http://scholar.google.com/scholar?q=james+peterson+petri+nets">google scholar</a>.)</p>
+
+<p>To try out the interpreter, first <a target="_blank" href="http://www.squeakland.org/download/">download and install Etoys</a> and <a target="_blank" href="petitpetri-download.zip">download Petit Petri</a>.
+If you unzip the Petit Petri download you will find several Etoys project files containing examples that you can run. Simply start Etoys and drag and drop any of these files onto the running Etoys images.
+</p>
+
+<p>Alternatively you can run the interpreter directly from your web browser once you have the Etoys browser plug-in installed. (This should be installed automatically when you install Etoys.)
+Simply follow
+<a target="_blank" href="http://www.squeakland.org/project.jsp?http://scg.unibe.ch/download/petitpetri/petriNets.pr"><em>this link</em></a>
+to start the interpreter. (You will be prompted if the plug-in is not installed.)</p>
+
+<!-- p>If you are running Mac OSX 10.5 (Leopard), you may find that the plugin is broken. If this is the case, install the latest version of <a target="_blank" href="http://www.squeakland.org/plugin/installers/mac-x-std.html">Squeakland for Mac OSX</a>, and then install the following <a href="SqueakBrowserPlugin.zip">patch</a> (thanks to John McIntosh!).</p -->
+
+<!-- --- QUICKSTART -------------------------------------------------- -->
+<a name="QUICKSTART">
+<h2>Quick start</h2>
+</a>
+
+<p><img class="float" width="35%" src="Images/produceConsume.png">With any luck, you should now see in your browser a simple Petri net that looks like this:
+</p>
+
+<p>
+The green and red bars are <em>transitions</em> and the numbered ellipses are the input and output <em>places</em> for the transitions.
+The numbers represent the available <em>tokens</em> in a given place.
+(Usually these are shown as black dots, but to keep the implementation simple, textual numbers are shown.)
+Arrows go from input places to transitions and from transitions to output places.
+A transition may <em>fire</em> if there is at least one token in each of its input places.</p>
+
+<p>In the implementation, firable transitions are highlighted <em>green</em> and disabled (<em>i.e.,</em> not firable) transitions are highlighted <em>red</em>.
+The colours are purely a visual cue and are not part of the Petri net formalism.
+Similarly places with tokens are highlighted yellow, and empty places are white.</p>
+
+<p>You can fire a transition by clicking on it.
+This will cause one token to be removed from each input place and one token to be placed in each output place.
+Try this.
+If you click slowly, you will see the inputs removed and outputs inserted in two separate stages.</p>
+
+<p>
+<img width="12%" align="left" src="Images/editing.png">
+If you want to change the number of tokens in a place, just mouse over the number and edit it. The place will change the highlight colour to blue while you are editing.
+When you leave the place, the highlight will switch to yellow or white, and the connected transitions will be updated to red or green, as appropriate.
+</p>
+
+<!-- --- BUILDING -------------------------------------------------- -->
+<a name="BUILDING">
+<h2>Building your own nets</h2>
+</a>
+<p><img width="30%" align="left" src="Images/rewiring.png">
+	<img width="10%" class="float" src="Images/factory.png">
+You can rewire the net by grabbing either end of an arrow and dropping it into another place or transition.
+(Perhaps you already accidentally did this when you were trying to click on a transition!)
+Make sure you connect places to transitions and not places to places or transitions to transitions.  The interpreter doesn't check for nonsense!
+</p>
+
+<p>
+If you want more places, transitions or arrows, you can get them from the factory.
+Just click, drag and drop.
+</p>
+
+<p>You might prefer to start from a clean slate.
+You can close the running Petri net interpreter and open a <a target="_blank" href="http://www.squeakland.org/project.jsp?http://scg.unibe.ch/download/petitpetri/petriNetFactory.pr">Petri net factory</a> without any existing net.</p>
+
+<p><img width="20%" align="left" src="Images/handles.png">
+To move an existing object, you should "right-click" on an object (possibly using a <em>META</em> key on your keyboard).
+This will bring up a bunch of mysterious looking handles on the selected object.
+You can mouse over the handles to see what they do.
+</p>
+
+<p>
+Try to build the following Petri net model of a bounded buffer.
+The blue rectangles represent the producer and the consumer.
+The places in between represent the numbers of full and empty slots.
+<img width="35%" class="float" src="Images/boundedBuffer.png">
+</p>
+
+<p>NB: The blue rectangles are just blue rectangles.
+If you want them, you can get them from the <em>Supplies</em> flap.
+Right-click and use the yellow handle to resize them.
+Use the red menu handle to send them to the background.</p>
+
+<!-- --- ETOYS -------------------------------------------------- -->
+<a name="ETOYS">
+<h2>Etoys implementation</h2>
+</a>
+<p>The entire implementation consists of nine simple scripts for places and transitions. To access the scripts, right-click on a place or a transition and click the little blue eye.</p>
+
+<p>Here we see that transitions have 4 scripts. A mouseDown event will trigger the input script, which tell all the input places (tellAllPredecessors) to decrement themeselves.</p>
+
+<table><tr>
+<td>
+<img src="Images/transitionScripts.png">
+</td>
+<td>
+<img src="Images/input.png"><br/>
+<img src="Images/disable.png"><br/>
+<img src="Images/output.png"><br/>
+<img src="Images/checkIfFirable.png">
+</td>
+</tr></table>
+
+<p>Switching to the places, we see that the decrement script triggers the checkIfEmpty script, which in turn will disable the following transition if the place is empty.</p>
+
+<p>Now, if we mouseUp on the transition, the output script will be triggered, which increments each of the successor places. The increment script fires the checkIfFirable script of its successor transitions. The transition will then optimistically set its colour to green, and then trigger the checkIfEmpty script of all of its input places.</p>
+
+<table><tr>
+<td>
+<img src="Images/placeScripts.png">
+</td>
+<td>
+<img src="Images/decrement.png"><br/>
+<img src="Images/checkIfEmpty.png"><br/>
+<img src="Images/increment.png"><br/>
+<img src="Images/edit.png"><br/>
+<img src="Images/refresh.png">
+</td>
+</tr></table>
+
+<p>The only remaining scripts are the edit and refresh scripts of places, which update the colour of a place while we edit the token count. When we are done editing, the checkIfFirable script is run on all successor transitions.</p>
+
+<!-- p>A full discussion of Etoys is beyond the scope of this overview, but if you are interested in learning more, you should look at the <a target="_blank" href="http://www.squeakland.org/">Squeakland</a> web site, or consult the various
+<a target="_blank" href="http://www.squeakland.org/whatis/tutorials.html">tutorials</a> on the web.
+</p -->
+
+<!-- --- ACK -------------------------------------------------- -->
+<a name="ACK">
+<h2>Acknowledgments</h2>
+</a>
+<p>Thanks to <a target="_blank" href="http://www.emergent.de/">Markus G&auml;lli</a> for implementing the first version of the interpreter, and for taking the time to show me how to use Etoys.</p>
+</div class="contents">
+
+		<div class="sidebar column span-6 prepend-2 last">
+		<h1>Downloads</h1>
+		<ul>
+		<li><a target="_blank" href="http://www.squeakland.org/download/">Download Etoys</a></li>
+		<li><a target="_blank" href="petitpetri-download.zip">Download Petit Petri</a></li>
+		</ul>
+		<h1>Papers</h1>
+		<ul>
+		<li><a target="_blank" href="/cgi-bin/scgbib.cgi/abstract=yes?Gael06a">Idioms for Composing Games with Etoys</a></li>
+		<li><a href="http://portal.acm.org/citation.cfm?doid=356698.356702">Petri Nets</a> survey article</li>
+		</ul>
+		<h1>Browser plugin examples</h1>
+		<ul>
+		<li><a target="_blank" href="http://www.squeakland.org/project.jsp?http://scg.unibe.ch/download/petitpetri/petriNets.pr">Petri net squeaklet</a></li>
+		<li><a target="_blank" href="http://www.squeakland.org/project.jsp?http://scg.unibe.ch/download/petitpetri/petriNetFactory.pr">Petri net factory</a> (menu only)</li>
+		<li><a href="Squeaklets/index.html">More examples</a></li>
+		</ul>
+		</div class="sidebar">
+
+	</div class="column">
+
+	<!-- div class="breadcrumb footnote">You are here: ...</div -->
+	<div class="footnote">Last changed 2009-05-04 by <a href="/staff/oscar">omn</a></div>
+</div class="container">
+
+</body>
+</html>
