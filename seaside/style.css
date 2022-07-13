@@ -1,0 +1,130 @@
+.browsecomponent .randomHighlight,
+.browsecomponent .sidebar {display: none;}
+
+body {font-size: 0.8em;}
+pre, code, tt { padding: 3px; background-color: #eee; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+a:after { content: ""; }
+
+/* HEADER */
+.header .menu ul { list-style-type: none; border-bottom: 1px solid #006EDD; margin: 0; }
+.header .menu ul li a.active { color: white;
+	background: #006EDD;}
+.header .menu ul li a {
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	padding: 0.6em;
+	padding-bottom: 0.2em;}
+.header .menu ul li {
+	display: inline;
+	margin: 0;
+	margin-right: 1.5em;
+	list-style-type: none;}
+.header .tool ul { text-align: right; font-size: 80%; margin: 0; padding: 0; list-style: none; }
+.header .tool ul li { display: inline; list-style: none; margin: 0; padding: 0; padding-left: 1em; }
+.header .tool a {color: #777;}
+.header .tool a:hover {color: white;}
+
+
+/*ROOT*/
+.randomHighlight {
+	text-align: left;}
+
+/*MAIN BODY*/
+.mainbody {
+	padding-top: 4em;
+	padding-bottom: 10em;}
+.postticker ul {
+	list-style: none;
+	margin-left: 0;}
+.postticker ul li {
+	margin-bottom: 1.5em;}
+.postticker .published, .postticker .timestamp, .postticker .summary {color: #777;}
+.postticker .subscribe,
+.postticker .timestamp .time,
+.postticker .timestamp .author {display: none;}
+.postticker a:hover.post {color: #white;}
+.breadcrumb ul {display: inline; margin-left: 0;}
+.breadcrumb li {
+	list-style: none;
+	padding-left: 0.2em;
+	display: inline;}
+.breadcrumb li:after {content: '/'; padding-left: 0.2em;}
+.breadcrumb ul {margin: 0;}
+
+
+/* ADMIN */
+.admin { color: #444; padding-top: 5em;}
+.admin a { color: #555; }
+.admin span.button { float: left; display: block; width: 0.8em; }
+.admin ul { list-style: none; margin-left: 0em; }
+.admin ul ul { margin-left: 1.5em; }
+
+
+/*BLOG*/
+div.post {margin-bottom: 4.5em;}
+div.comment {margin-bottom: 3em;}
+.meta {font-size: 80%; color: #aaa;}
+.leavecomment {margin-top: 4.5em; margin-bottom: 4.5em;}
+.comments {margin-top: 4.5em;}
+
+
+/*UTILS */
+.float {
+	float: right;
+	margin: 1em;
+	margin-right: 0;}
+.thumbnail img, img.thumbnail {max-width: 100px;}
+.largethumbnail img, img.largethumbnail {max-width: 300px;}
+img {max-width: 99%;}
+.right {text-align: right;}
+.left {text-align: left;}
+.center {text-align: center;}
+.nobullets ul {list-style: none; margin-left: 0;  margin-right: 0;}
+.nobullets ul ul {margin-left: 1em;}
+.nobullets ul li {margin-top: 1em;}
+.inlinedlist ul {list-style: none; margin-left: 0;  margin-right: 0;}
+.inlinedlist ul li {display: inline; margin-left: 0; margin-right: 0;}
+.footnote {font-size: 80%;}
+
+/* META */
+.metaenvironment h1.heading {display: none;}
+.metaheader {background: #C3D9FF; font-size: 200%}
+.metaheader ul {display: inline; margin: 0;}
+.metaheader li {list-style: none; display: inline; margin: 0;}
+.metaheader li:after {content: "/"}
+.metaenvironment.container {border: 1px solid #C3D9FF; margin-top: 0;}
+.metafooter {background: #C3D9FF;}
+.metafooter li {list-style: none;}
+
+
+/*DEFAULT*/
+h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: inherit; font-size: 100%; line-height: auto; }
+h1.heading { font-size: 2em; margin-bottom: 1.5em; }
+h1 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+.maincontents {font-size: 1.5em;}
+h2 { font-size: 1.2em; height: 1.25em; line-height: 1.25; margin-bottom: 1.25em; }
+h3 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h4 { font-size: 1em; font-weight: bold; }
+h5 { font-size: 1em; }
+textarea {width: 99%;}
+.notopmargin {margin-top: 0;}
+input.text {max-width: 99%;}
+
+/* PIER */
+.broken { color: red; text-weight: bold;}
+.protected { color: #aaa; }
+a {color: #006EDD;}
+a:hover {color: white; background: #006EDD; }
+a:hover.nobackground {background: white;}
+a.view, a.command {color: gray;}
+a {text-decoration: none;}
+th {font-weight: normal;}
+dl dt {font-weight: normal;}
+dl dd {margin-top: -1.5em; margin-left: 20em;}
+td {vertical-align: top; padding-left:0;}
+th {background: #fff; padding-left:0;}
+tr.group td, tr.group th {font-weight: bold; font-size: 1.2em;}
+
+/* Test */
